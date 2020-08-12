@@ -13,12 +13,12 @@ class Dom {
     return this.$el.outerHTML.trim()
   }
 
-  get text() {
-    return this.$el.textContent
-  }
-
-  set text(text) {
-    this.$el.textContent = text
+  text(text) {
+    if (typeof text !== 'undefined') {
+      this.$el.textContent = text
+      return this
+    }
+    return this.$el.textContent || this.$el.value
   }
 
   clear() {
@@ -81,12 +81,23 @@ class Dom {
     return this.data.id
   }
 
+  attr(name, value) {
+    if (value) {
+      this.$el.setAttribute(name, value)
+      return this
+    }
+    return this.$el.getAttribute(name)
+  }
+
   find(selector) {
     return $(this.$el.querySelector(selector))
   }
 
   findAll(selector) {
-    return this.$el.querySelectorAll(selector)
+    const result = []
+    this.$el.querySelectorAll(selector)
+        .forEach(el => result.push($(el)))
+    return result
   }
   css(styles = {}) {
     for (const key in styles) {
@@ -94,6 +105,13 @@ class Dom {
         this.$el.style[key] = styles[key]
       }
     }
+  }
+
+  getStyles(styles) {
+    return styles.reduce((res, style) => {
+      res[style] = this.$el.style[style]
+      return res
+    }, {})
   }
 }
 
