@@ -21,6 +21,13 @@ export function storage(key, data) {
   return localStorage.setItem(key, JSON.stringify(data))
 }
 
+export function delStorage(key) {
+  if ( !key ) {
+    return localStorage.clear()
+  }
+  return localStorage.removeItem(key)
+}
+
 export function isEqual(a, b) {
   if (typeof a === 'object' && typeof b === 'object') {
     return JSON.stringify(a) === JSON.stringify(b)
@@ -48,4 +55,12 @@ export function debounce(fn, ms) {
     clearTimeout(timeout)
     timeout = setTimeout(later, ms)
   }
+}
+
+export function clone(obj) {
+  return JSON.parse( JSON.stringify(obj) )
+}
+
+export function preventDefault(event) {
+  event.preventDefault()
 }
