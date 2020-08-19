@@ -1,7 +1,7 @@
 {
-  "name": "exel",
+  "name": "excel",
   "version": "1.0.0",
-  "description": "custom exel app",
+  "description": "custom excel app",
   "main": "webpack.config.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --open",
@@ -9,18 +9,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dezmunt1/exel.git"
+    "url": "git+https://github.com/dezmunt1/excel.git"
   },
   "keywords": [
     "js",
-    "exel"
+    "excel"
   ],
   "author": "dezmunt1 <pickleloper@yahoo.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dezmunt1/exel/issues"
+    "url": "https://github.com/dezmunt1/excel/issues"
   },
-  "homepage": "https://github.com/dezmunt1/exel#readme",
+  "homepage": "https://github.com/dezmunt1/excel#readme",
   "private": true,
   "browserslist": "> 0.25%, not dead",
   "devDependencies": {
